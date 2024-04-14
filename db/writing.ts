@@ -4,6 +4,7 @@ import path from "path";
 type Metadata = {
   title: string;
   datePublished: string;
+  summary: string;
   image?: string;
 };
 
@@ -25,8 +26,8 @@ function parseFrontmatter(fileContent: string) {
   return { metadata: metadata as Metadata, content };
 }
 
-export function getBlogPosts() {
-  const dir = path.join(process.cwd(), "content");
+export function getPosts() {
+  const dir = path.join(process.cwd(), "writing");
 
   let mdxFiles = fs
     .readdirSync(dir)
@@ -45,8 +46,8 @@ export function getBlogPosts() {
   });
 }
 
-export async function getBlogPost(slug: string) {
-  const dir = path.join(process.cwd(), "content");
+export async function getPost(slug: string) {
+  const dir = path.join(process.cwd(), "writing");
   let file = fs.readFileSync(path.join(dir, `${slug}.mdx`), "utf-8");
   let { metadata, content } = parseFrontmatter(file);
 
