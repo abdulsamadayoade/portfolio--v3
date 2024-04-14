@@ -1,8 +1,8 @@
-import { getBlogPosts } from "@/db/blog";
+import { getPosts } from "@/db/writing";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getBlogPosts();
+  const posts = getPosts();
 
   let blogs = posts.map((post) => ({
     url: `https://abdulsamad.xyz/blog/${post.slug}`,
