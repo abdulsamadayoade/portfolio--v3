@@ -13,7 +13,7 @@ export default function Page() {
   let posts = getPosts();
 
   return (
-    <section className="max-w-2xl px-5 pt-20 md:mx-auto">
+    <section>
       <h1 className="text-3xl text-white">writing</h1>
 
       <div className="space-y-4 mt-7">
@@ -31,7 +31,7 @@ export default function Page() {
             <Link
               key={post.slug}
               className="flex flex-col space-y-1.5 text-white hover:bg-black/10 py-3 px-1 md:px-3 rounded-md"
-              href={`/blog/${post.slug}`}>
+              href={`/writing/${post.slug}`}>
               <span>{post.metadata.title}</span>
               <span className="text-xs opacity-50 md:text-sm flex items-end justify-between">
                 <span className="hidden md:inline">
