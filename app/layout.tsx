@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Commissioner } from "next/font/google";
-import { GeistMono } from "geist/font/mono";
+import { commissioner, geistMono } from "./fonts";
 import "./globals.css";
-
-const commissioner = Commissioner({
-  subsets: ["latin"],
-  variable: "--font-commissioner-sans",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://abdulsamad.xyz"),
@@ -50,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${commissioner.variable} ${GeistMono.variable}`}>
+      <body className={`${commissioner.className} ${geistMono.variable}`}>
         {children}
       </body>
     </html>
