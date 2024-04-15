@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { commissioner, geistMono } from "./fonts";
 import "./globals.css";
 
@@ -37,6 +38,21 @@ export const metadata: Metadata = {
   },
 };
 
+const navLinks = [
+  {
+    href: "/",
+    label: "home",
+  },
+  {
+    href: "/work",
+    label: "work",
+  },
+  {
+    href: "/writing",
+    label: "writing",
+  },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,7 +61,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${commissioner.variable} ${geistMono.variable}`}>
-        {children}
+        <div className="max-w-2xl px-5 py-20 mx-auto">
+          <nav className="flex items-center justify-end space-x-4 mb-8">
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={label}
+                href={href}
+                className="text-white opacity-70 text-xs font-mono hover:underline">
+                {label}
+              </Link>
+            ))}
+          </nav>
+          <main>{children}</main>
+        </div>
       </body>
     </html>
   );
