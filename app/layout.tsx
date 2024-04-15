@@ -44,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${commissioner.className} ${geistMono.variable}`}>
+      <body className={`${commissioner.variable} ${geistMono.variable}`}>
         {children}
       </body>
     </html>

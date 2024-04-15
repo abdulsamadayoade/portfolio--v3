@@ -33,8 +33,10 @@ export default function Page() {
               className="flex flex-col space-y-1.5 text-white hover:bg-black/10 py-3 px-1 md:px-3 rounded-md"
               href={`/blog/${post.slug}`}>
               <span>{post.metadata.title}</span>
-              <span className="text-xs opacity-50 md:text-sm flex items-center justify-between">
-                <span>{post.metadata.summary}</span>
+              <span className="text-xs opacity-50 md:text-sm flex items-end justify-between">
+                <span className="hidden md:inline">
+                  {post.metadata.summary}
+                </span>
                 <span className="font-mono text-[10px]">
                   {formatDate(post.metadata.datePublished)}
                 </span>
