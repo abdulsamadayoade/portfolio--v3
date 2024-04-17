@@ -44,10 +44,6 @@ const navLinks = [
     label: "home",
   },
   {
-    href: "/work",
-    label: "work",
-  },
-  {
     href: "/writing",
     label: "writing",
   },
