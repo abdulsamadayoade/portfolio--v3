@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fonts */
+@font-face {
+  font-family: "FreightTextProLight";
+  src: url("/assets/fonts/FreightTextProLight-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "EudoxusSans";
+  src: url("/assets/fonts/EudoxusSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "EudoxusSans";
+  src: url("/assets/fonts/EudoxusSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "EudoxusSans";
+  src: url("/assets/fonts/EudoxusSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --sh-sign: #8996a3;
   --sh-comment: #a19595;
@@ -12,6 +45,16 @@
   --sh-identifier: white;
   --sh-keyword: #f47067;
   --sh-string: #85e89d;
+
+  --text-color-link: rgba(255, 255, 255, 1);
+  --text-underline-color: rgba(162, 164, 170, 0.5);
+  --text-color-heading: rgba(255, 255, 255, 1);
+  --text-color-body: rgba(218, 219, 225, 1);
+
+  --border-color: rgba(48, 48, 56, 1);
+
+  --text-font: "EudoxusSans", sans-serif;
+  --text-font-light: "FreightTextProLight", serif;
 }
 
 ::-moz-selection {
@@ -31,10 +74,10 @@ html {
 
 body {
   background-color: rgb(17, 16, 16);
-  font-family: var(--font-commissioner-sans);
+  font-family: var(--text-font);
 }
 
-.prose .anchor {
+/* .prose .anchor {
   @apply absolute invisible no-underline;
 
   margin-left: -1em;
@@ -77,14 +120,14 @@ body {
 
 .prose code span {
   @apply font-medium;
-}
+} */
 
 .prose img {
   /* Don't apply styles to next/image */
-  @apply m-0;
+  /* @apply m-0; */
 }
 
-.prose h2,
+/* .prose h2,
 h3,
 h4 {
   @apply font-medium tracking-tighter !important;
@@ -92,12 +135,12 @@ h4 {
 
 .prose strong {
   @apply font-medium;
-}
+} */
 
 .prose > :first-child {
   /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important;
+  /* margin-top: 1.25em !important; */
+  /* margin-bottom: 1.25em !important; */
 }
 
 pre::-webkit-scrollbar {
@@ -111,4 +154,66 @@ pre {
 
 .title {
   text-wrap: balance;
+}
+
+/* Links */
+a {
+  position: relative;
+  color: var(--text-color-link);
+  text-decoration: underline;
+  text-decoration-color: var(--text-underline-color);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  font-size: 16px;
+  font-family: var(--text-font-light);
+}
+
+/* List */
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  width: 0.5em;
+  height: 1px;
+  top: 12px;
+  left: 0;
+  background-color: var(--text-underline-color);
+}
+
+ul li {
+  position: relative;
+  padding-left: 1em;
+}
+
+/* Projects */
+.projects {
+}
+.projects h3 {
+  font-family: var(--text-font);
+  color: var(--text-color-heading);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.projects .title {
+  color: var(--text-color-body);
+  font-family: var(--text-font-light);
+}
+
+.projects .tools {
+  color: var(--text-color-body);
+  font-family: var(--text-font);
+  letter-spacing: 1px;
+}
+
+hr {
+  margin: 60px 0;
+  border: none;
+  border-top: 1px solid var(--border-color);
 }
