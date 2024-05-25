@@ -1,4 +1,6 @@
 import Link from "next/link";
+import experiences from "@/db/experiences";
+import projects, { Project } from "@/db/projects";
 
 const connectLinks = [
   {
@@ -13,151 +15,110 @@ const connectLinks = [
     title: "LinkedIn",
     href: "/",
   },
-  {
-    title: "Read.cv",
-    href: "/",
-  },
 ];
 
 export default function Page() {
   return (
     <>
-      <div>
-        <div>
-          <h2 className="text-[rgba(129,130,141,1)] uppercase text-[10.5px] tracking-[2px] font-mono">
-            Work Experience
-          </h2>
+      <section>
+        <h2 className="text-muted tracking-tight text-vs uppercase font-mono">
+          Work Experience
+        </h2>
+
+        <div className="mt-5 space-y-10">
+          {experiences &&
+            experiences.length > 0 &&
+            experiences.map(
+              ({ id, company, description, duration, projects }) => (
+                <div key={id}>
+                  <h3 className="flex items-end space-x-3 mb-3">
+                    <span className="text-base font-bold text-heading">
+                      {company}
+                    </span>
+                    <span className="text-[10px] pb-[1.5px] font-mono text-muted">
+                      {duration.from} {duration.to && `to ${duration.to}`}
+                    </span>
+                  </h3>
+                  <p className="font-serif text-base text-body opacity-90">
+                    {description}
+                  </p>
+                  {projects && projects.length > 0 && (
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 mt-5">
+                      {projects.map(({ name, url }) => (
+                        <li
+                          key={name}
+                          className="relative pl-[1em] before:content before:absolute before:w-[0.5em] before:h-[1px] before:top-3 before:left-0 before:bg-underline">
+                          <Link href={url} className="sub-link" target="_blank">
+                            {name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )
+            )}
         </div>
+      </section>
 
-        <div className="my-10 projects">
-          <h2 className="text-[rgba(129,130,141,1)] mb-6 uppercase text-[10.5px] tracking-[2px] font-mono">
-            Projects
-          </h2>
+      <section className="my-16">
+        <h2 className="text-muted tracking-tight text-vs uppercase font-mono">
+          Projects
+        </h2>
 
-          <div className="space-y-12">
-            <div>
-              <div>
-                <h3>PollUp</h3>
-                <p className="text-base title">
-                  A full-stack web application that allows users to create and
-                  participate in polls.
+        <div className="mt-5 space-y-10">
+          {projects &&
+            projects.length > 0 &&
+            projects.map(({ id, name, description, tools, urls }: Project) => (
+              <div key={id}>
+                <h3 className="text-base font-bold text-heading mb-3">
+                  {name}
+                </h3>
+                <p className="font-serif text-base text-body opacity-90">
+                  {description}
                 </p>
-              </div>
-
-              <div className="my-5 flex items-center space-x-2">
-                <h2 className="text-[rgba(129,130,141,1)] uppercase text-[9px] tracking-[2px] font-mono">
-                  Tools:
-                </h2>
-                <div className="flex tools items-center space-x-2 text-[10px] uppercase">
-                  <p>NextJS</p>
-                  <p>TailwindCSS</p>
-                  <p>Redux</p>
-                  <p>NodeJS</p>
-                  <p>Express</p>
-                  <p>MongoDB</p>
-                  <p>Vercel</p>
-                  <p>AWS</p>
+                <div className="my-3 flex items-center space-x-2">
+                  <p className="text-[10px]  font-medium uppercase text-muted font-mono">
+                    Tools:
+                  </p>
+                  <div className="flex items-center space-x-2"></div>
                 </div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 max-w-[180px]">
+                  {Object.entries(urls).map(([key, value]) => (
+                    <li
+                      key={key}
+                      className="relative pl-[1em] before:content before:absolute before:w-[0.5em] before:h-[1px] before:top-3 before:left-0 before:bg-underline">
+                      <Link
+                        href={value}
+                        className="sub-link capitalize"
+                        target="_blank">
+                        {key}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              <ul>
-                <li>
-                  <a href="/">Live URL</a>
-                </li>
-                <li>
-                  <a href="/">Github</a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <div>
-                <h3>Houda</h3>
-                <p className="text-base title">
-                  Mobile app that helps users to improve their knowledge of
-                  islam by providing sermons and preachings from different
-                  scholars.
-                </p>
-              </div>
-
-              <div className="my-5 flex items-center space-x-2">
-                <h2 className="text-[rgba(129,130,141,1)] uppercase text-[9px] tracking-[2px] font-mono">
-                  Tools:
-                </h2>
-                <div className="flex tools items-center space-x-2 text-[10px] uppercase">
-                  <p>React Native</p>
-                  <p>Expo</p>
-                  <p>Zustand</p>
-                  <p>NestJS</p>
-                  <p>Postgres</p>
-                  <p>Vercel</p>
-                  <p>Railway</p>
-                </div>
-              </div>
-
-              <ul>
-                <li>
-                  <a href="/">Live URL</a>
-                </li>
-                <li>
-                  <a href="/">Github</a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <div>
-                <h3>Yahaya Muhammad</h3>
-                <p className="text-base title">
-                  A simple portfolio website for a product designer
-                </p>
-              </div>
-
-              <div className="my-5 flex items-center space-x-2">
-                <h2 className="text-[rgba(129,130,141,1)] uppercase text-[9px] tracking-[2px] font-mono">
-                  Tools:
-                </h2>
-                <div className="flex tools items-center space-x-2 text-[10px] uppercase">
-                  <p>NextJS</p>
-                  <p>CSS Modules</p>
-                  <p>GSAP</p>
-                  <p>Cloudinary</p>
-                </div>
-              </div>
-
-              <ul>
-                <li>
-                  <a href="/">Live URL</a>
-                </li>
-                <li>
-                  <a href="/">Github</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <hr />
-
-        <div>
-          <h2 className="text-[rgba(129,130,141,1)] uppercase text-[10.5px] tracking-[2px] font-mono">
-            Connect
-          </h2>
-          <p className="text-[15px] mt-2 mb-5 text-[rgba(218,219,225,1)]">
-            You can always find me here:
-          </p>
-
-          <ul>
-            {connectLinks.map(({ title, href }, index) => (
-              <li key={index}>
-                <Link href={href} target="_blank">
-                  {title}
-                </Link>
-              </li>
             ))}
-          </ul>
         </div>
-      </div>
+      </section>
+
+      <section>
+        <h2 className="text-muted tracking-tight text-vs uppercase font-mono">
+          Connect
+        </h2>
+
+        <ul className="grid grid-cols-1 mt-5 sm:grid-cols-2 gap-y-2.5">
+          {connectLinks.map(({ title, href }, index) => (
+            <li
+              key={title}
+              className="relative pl-[1em] before:content before:absolute before:w-[0.5em] before:h-[1px] before:top-3 before:left-0 before:bg-underline">
+              <Link href={href} target="_blank" className="sub-link">
+                {title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
     </>
   );
 }

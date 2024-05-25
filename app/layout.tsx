@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { commissioner, geistMono } from "./fonts";
+
 import "./globals.css";
+import { geistMono } from "./fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://abdulsamad.xyz"),
@@ -56,8 +57,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${commissioner.variable} ${geistMono.variable}`}>
-        <div className="max-w-2xl px-5 py-20 mx-auto">
+      <body className={`${geistMono.variable}`}>
+        <div className="max-w-xl px-5 py-20 mx-auto">
           <nav className="flex items-center justify-end space-x-4 mb-8">
             {navLinks.map(({ href, label }) => (
               <Link
