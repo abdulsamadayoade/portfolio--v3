@@ -12,9 +12,9 @@ export type Project = {
 const projects: Project[] = [
   {
     id: 1,
-    name: "PollUp",
+    name: "Kleva",
     description:
-      "A full-stack web application that allows users to create and participate in polls.",
+      "AI-powered learning platform using Next.js and Node.js with Express, integrating OpenAI’s API for interactive chat functionality and content generation.",
     tools: [
       "NextJS",
       "TailwindCSS",
@@ -24,23 +24,6 @@ const projects: Project[] = [
       "MongoDB",
       "Vercel",
       "AWS",
-    ],
-    urls: {
-      live: "",
-      github: "",
-    },
-  },
-  {
-    id: 2,
-    name: "Houda",
-    description:
-      "Mobile app that helps users to improve their knowledge of islam by providing sermons and preachings from different scholars.",
-    tools: [
-      "React Native",
-      "Expo",
-      "Zustand",
-      "NestJS",
-      "Postgres",
       "Vercel",
       "Railway",
     ],
@@ -50,10 +33,20 @@ const projects: Project[] = [
     },
   },
   {
-    id: 3,
-    name: "Yahaya Muhammad",
-    description: "Portfolio website for a product designer.",
-    tools: ["NextJS", "CSS Modules", "GSAP", "Cloudinary"],
+    id: 2,
+    name: "PollUp",
+    description:
+      "React Native mobile application that allows users to create and participate in polls.",
+    tools: [
+      "React Native",
+      "Expo",
+      "Zustand",
+      "NodeJS",
+      "Express",
+      "MongoDB",
+      "Vercel",
+      "AWS",
+    ],
     urls: {
       live: "",
       github: "",

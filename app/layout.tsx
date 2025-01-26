@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-
 import "./globals.css";
 import { geistMono } from "./fonts";
 
@@ -39,17 +37,6 @@ export const metadata: Metadata = {
   },
 };
 
-const navLinks = [
-  {
-    href: "/",
-    label: "home",
-  },
-  {
-    href: "/writing",
-    label: "writing",
-  },
-];
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,16 +46,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistMono.variable}`}>
         <div className="max-w-xl px-5 py-20 mx-auto">
-          <nav className="flex items-center justify-end space-x-4 mb-8">
-            {navLinks.map(({ href, label }) => (
-              <Link
-                key={label}
-                href={href}
-                className="text-white opacity-70 text-xs font-mono hover:underline">
-                {label}
-              </Link>
-            ))}
-          </nav>
           <main>{children}</main>
         </div>
       </body>
