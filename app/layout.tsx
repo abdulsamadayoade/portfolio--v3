@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { commissioner, geistMono } from "./fonts";
 import "./globals.css";
+import { geistMono } from "./fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://abdulsamad.xyz"),
@@ -9,10 +8,29 @@ export const metadata: Metadata = {
     default: "Abdulsamad Ayoade",
     template: "%s | Abdulsamad Ayoade",
   },
-  description: "Software Engineer",
+  description:
+    "Frontend Engineer specializing in building high-quality B2B & B2C applications that scale. Currently building tools at Reeddi to help businesses achieve more.",
+  keywords: [
+    "Abdulsamad Ayoade",
+    "Frontend Engineer",
+    "Software Engineer",
+    "Web Developer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript",
+    "JavaScript",
+    "B2B Applications",
+    "B2C Applications",
+    "Frontend Development",
+    "Web Development",
+    "UI Development",
+    "Software Development",
+    "Reeddi",
+  ],
   openGraph: {
     title: "Abdulsamad Ayoade",
-    description: "Software Engineer",
+    description:
+      "Frontend Engineer specializing in building high-quality B2B & B2C applications that scale. Currently building tools at Reeddi to help businesses achieve more.",
     url: "https://abdulsamad.xyz",
     siteName: "Abdulsamad Ayoade",
     locale: "en_US",
@@ -32,22 +50,13 @@ export const metadata: Metadata = {
   twitter: {
     title: "Abdulsamad Ayoade",
     card: "summary_large_image",
+    description:
+      "Frontend Engineer specializing in building high-quality B2B & B2C applications that scale. Currently building tools at Reeddi to help businesses achieve more.",
   },
   verification: {
     google: "todo",
   },
 };
-
-const navLinks = [
-  {
-    href: "/",
-    label: "home",
-  },
-  {
-    href: "/writing",
-    label: "writing",
-  },
-];
 
 export default function RootLayout({
   children,
@@ -56,18 +65,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${commissioner.variable} ${geistMono.variable}`}>
-        <div className="max-w-2xl px-5 py-20 mx-auto">
-          <nav className="flex items-center justify-end space-x-4 mb-8">
-            {navLinks.map(({ href, label }) => (
-              <Link
-                key={label}
-                href={href}
-                className="text-white opacity-70 text-xs font-mono hover:underline">
-                {label}
-              </Link>
-            ))}
-          </nav>
+      <body className={`${geistMono.variable}`}>
+        <div className="max-w-xl px-5 py-20 mx-auto">
           <main>{children}</main>
         </div>
       </body>

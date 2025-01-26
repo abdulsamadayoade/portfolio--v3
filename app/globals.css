@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fonts */
+@font-face {
+  font-family: "FreightTextProBook";
+  src: url("/assets/fonts/FreightTextProBook-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "EudoxusSans";
+  src: url("/assets/fonts/EudoxusSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "EudoxusSans";
+  src: url("/assets/fonts/EudoxusSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --sh-sign: #8996a3;
   --sh-comment: #a19595;
@@ -12,6 +37,17 @@
   --sh-identifier: white;
   --sh-keyword: #f47067;
   --sh-string: #85e89d;
+
+  --text-color-link: rgba(255, 255, 255, 1);
+  --text-color-underline: rgba(162, 164, 170, 0.5);
+  --text-color-heading: rgba(255, 255, 255, 1);
+  --text-color-body: rgba(218, 219, 225, 1);
+  --text-color-muted: rgba(129, 130, 141, 1);
+
+  --border-color: rgba(48, 48, 56, 1);
+
+  --text-sans: "EudoxusSans", sans-serif;
+  --text-serif: "FreightTextProBook", serif;
 }
 
 ::-moz-selection {
@@ -31,10 +67,10 @@ html {
 
 body {
   background-color: rgb(17, 16, 16);
-  font-family: var(--font-commissioner-sans);
+  /* font-family: var(--text-font); */
 }
 
-.prose .anchor {
+/* .prose .anchor {
   @apply absolute invisible no-underline;
 
   margin-left: -1em;
@@ -77,14 +113,14 @@ body {
 
 .prose code span {
   @apply font-medium;
-}
+} */
 
 .prose img {
   /* Don't apply styles to next/image */
-  @apply m-0;
+  /* @apply m-0; */
 }
 
-.prose h2,
+/* .prose h2,
 h3,
 h4 {
   @apply font-medium tracking-tighter !important;
@@ -92,12 +128,12 @@ h4 {
 
 .prose strong {
   @apply font-medium;
-}
+} */
 
 .prose > :first-child {
   /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important;
+  /* margin-top: 1.25em !important; */
+  /* margin-bottom: 1.25em !important; */
 }
 
 pre::-webkit-scrollbar {
@@ -111,4 +147,16 @@ pre {
 
 .title {
   text-wrap: balance;
+}
+
+/* Links */
+.sub-link {
+  position: relative;
+  color: var(--text-color-link);
+  text-decoration: underline;
+  text-decoration-color: var(--text-underline-color);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  font-size: 1.01em;
+  font-family: var(--text-serif);
 }
