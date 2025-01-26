@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { geistMono } from "./fonts";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://abdulsamad.xyz"),
@@ -69,6 +70,7 @@ export default function RootLayout({
         <div className="max-w-xl px-5 py-20 mx-auto">
           <main>{children}</main>
         </div>
+        <Analytics />
       </body>
     </html>
   );
