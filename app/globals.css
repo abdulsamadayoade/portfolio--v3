@@ -27,14 +27,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "EudoxusSans";
-  src: url("/assets/fonts/EudoxusSans-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --sh-sign: #8996a3;
   --sh-comment: #a19595;

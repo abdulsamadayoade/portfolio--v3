@@ -8,10 +8,29 @@ export const metadata: Metadata = {
     default: "Abdulsamad Ayoade",
     template: "%s | Abdulsamad Ayoade",
   },
-  description: "Software Engineer",
+  description:
+    "Frontend Engineer specializing in building high-quality B2B & B2C applications that scale. Currently building tools at Reeddi to help businesses achieve more.",
+  keywords: [
+    "Abdulsamad Ayoade",
+    "Frontend Engineer",
+    "Software Engineer",
+    "Web Developer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript",
+    "JavaScript",
+    "B2B Applications",
+    "B2C Applications",
+    "Frontend Development",
+    "Web Development",
+    "UI Development",
+    "Software Development",
+    "Reeddi",
+  ],
   openGraph: {
     title: "Abdulsamad Ayoade",
-    description: "Software Engineer",
+    description:
+      "Frontend Engineer specializing in building high-quality B2B & B2C applications that scale. Currently building tools at Reeddi to help businesses achieve more.",
     url: "https://abdulsamad.xyz",
     siteName: "Abdulsamad Ayoade",
     locale: "en_US",
@@ -31,6 +50,8 @@ export const metadata: Metadata = {
   twitter: {
     title: "Abdulsamad Ayoade",
     card: "summary_large_image",
+    description:
+      "Frontend Engineer specializing in building high-quality B2B & B2C applications that scale. Currently building tools at Reeddi to help businesses achieve more.",
   },
   verification: {
     google: "todo",
