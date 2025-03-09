@@ -1,5 +1,5 @@
 import Link from "next/link";
-import projects, { Project } from "@/db/projects";
+import { explorations, recentProjects } from "@/db/projects";
 
 export default function Page() {
   return (
@@ -87,21 +87,39 @@ export default function Page() {
         </h2>
 
         <dl className="mt-5 space-y-10">
-          {projects &&
-            projects.length > 0 &&
-            projects.map(({ id, name, description }: Project) => (
+          {explorations &&
+            explorations.length &&
+            explorations.map(({ id, name, description }) => (
               <div key={id}>
-                <dt className="text-base font-bold text-heading mb-3">
+                <dt className="text-base font-bold text-heading mb-2">
                   {name}{" "}
-                  <span className="text-muted ml-2 text-[10px] font-light uppercase tracking-widest">
-                    (wip)
-                  </span>
                 </dt>
                 <dd className="font-serif text-base text-body opacity-90">
                   {description}
                 </dd>
               </div>
             ))}
+        </dl>
+      </section>
+
+      <section>
+        <h2 className="text-muted tracking-tight text-vs uppercase font-mono">
+          Recent Projects
+        </h2>
+        <dl className="mt-5 space-y-4">
+          {recentProjects.map(({ title, url }) => (
+            <div key={title}>
+              <dt className="text-base font-bold text-heading mb-1">
+                <a
+                  href={url}
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  {title}
+                </a>
+              </dt>
+            </div>
+          ))}
         </dl>
       </section>
     </>
